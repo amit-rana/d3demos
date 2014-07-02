@@ -1,0 +1,160 @@
+{
+    "name": "Courses",
+    "colorCode":"#04f4e9",
+    "children": [{
+            "name": "Modern Service Oriented Architecture",
+            "detail": "What does Service Oriented Architecture really mean? When is it \nrelevant? Why might it be interesting? What are the risks? How does it \nrelate to technologies such as web services, message queues and service \nbusses? How does it fit in with business processes, modeling and \nagility? And - most critically - how can it be put to use in order to \nbuild solutions that deliver value, enable the business to evolve, and \nare reliable, scalable and secure?\n",
+            "url": "http://www.edument.se/english/courses/course/modern-service-oriented-architecture",
+            "colorCode":"#04f4e9"
+        },
+        {
+            "name": "Architecture Courses",
+            "colorCode":"#36cc12",
+            "children": [
+                {
+                    "name": "CQRS, DDD and Event Sourcing: What it really means",
+                    "detail": "This fast-paced 1-day seminar focuses on how Domain Driven Design, \nCommand Query Responsibility Segregation and Event Sourcing come \ntogether to help us capture business requirements and map them into \nloosely coupled, well tested, to-the-point code.\n",
+                    "url": "http://www.edument.se/english/courses/course/CQRS-DDD-and-Event-Sourcing-What-it-really-means",
+                    "colorCode":"#36cc12"
+                },
+                {
+                    "name": "Modern Business Applications with DDD and CQRS",
+                    "detail": "This course aims to teach a direct, hands-on way to approach business \napplications. While explaining the theory along the way, the focus is \nfirmly on producing business software that's more useful, usable, \ntestable, maintainable, and easier to understand than traditional ways \nof building business applications.\n",
+                    "url": "http://www.edument.se/english/courses/course/hands-on-ddd-and-cqrs-with-net-or-java",
+                    "colorCode":"#36cc12"
+                },
+                {
+                    "name": "Modern Service Oriented Architecture",
+                    "detail": "What does Service Oriented Architecture really mean? When is it \nrelevant? Why might it be interesting? What are the risks? How does it \nrelate to technologies such as web services, message queues and service \nbusses? How does it fit in with business processes, modeling and \nagility? And - most critically - how can it be put to use in order to \nbuild solutions that deliver value, enable the business to evolve, and \nare reliable, scalable and secure?\n",
+                    "url": "http://www.edument.se/english/courses/course/modern-service-oriented-architecture",
+                    "colorCode":"#36cc12"
+                },
+                {
+                    "name": "Software Architecture",
+                    "detail": "This course will help you design your systems to cope with challenges \naround design concerns and constraints, how to map customer requirements\n to software, and how to avoid it all to turn into mud.\n",
+                    "url": "http://www.edument.se/english/courses/course/software-architecture",
+                    "colorCode":"#36cc12"
+                }
+            ]
+        },
+        {
+            "name": "Requirements Development using Product Based Planning plus Estimating & Scheduling ",
+            "detail": "Product based planning enables us to progressively develop the \nrequirements for building a product or service. This in turn means that \nwe can get feedback from the market or internally regarding the \nsuitability of the product(s) being developed. Based on the lessons \nlearned the project team can make controlled changes to the product or \nservice requirements to ensure that business objectives are met.",
+            "url": "http://www.edument.se/english/courses/course/requirements-development-using-product-based-planning-plus-estimating-and-scheduling",
+            "colorCode":"#04f4e9"
+        },
+        {
+            "name": ".NET Courses",
+            "colorCode":"#eeb815",
+            "children": [
+                {
+                    "name": "Beginning ASP.NET MVC 4 with Test Driven Development",
+                    "detail": "This course will give your ASP.NET MVC 4 development a solid start - in \nthe right direction! It picks out and explains the things you need to \nknow in order to use the framework effectively and develop testable \nsolutions. While the course has a focus on practical skills, it also \ntakes the time to explain important underlying concepts, including how \nHTTP works, the MVC design pattern, the TDD workflow and dependency \ninversion.\n",
+                    "url": "http://www.edument.se/english/courses/course/beginning-asp-net-mvc-4-with-test-driven-development",
+                    "colorCode":"#eeb815"
+                },
+                {
+                    "name": "C# Master Class",
+                    "colorCode":"#eeb815",
+                    "detail": "This class covers advanced topics with focus on modern architecture and \ndevelopment practices, clean code and focus on real-life use cases. \nUsing the skills learned will help you produce better quality software \nmore efficiently.\n",
+                    "url": "http://www.edument.se/english/courses/course/advanced-C-development",
+                    "children":[
+                        {
+                            "name": "Beginning C# using .NET 4.0",
+                            "detail": "This course gets you started with the C# language and the .NET \nframework. It will help you to understand the basic syntax and cover the\n most important parts of the class library. It will also give you a \nsolid foundation in object oriented development, covering both \ninheritance and interface implementation. The course is delivered by \nexperienced developers who will show you the best way to write C# \naccording to modern best practices.\n",
+                            "url": "http://www.edument.se/english/courses/course/beginning-c-using-net-4-0",
+                            "colorCode":"#eeb815"
+                        },
+                        {
+                            "name": "Intermediate C# using .NET 4.0",
+                            "detail": "Using C# effectively means going beyond the object oriented features of \nthe language. Effective C# developers make good use of generics, LINQ \n(Language Integrated Query) and lambda expressions. They use \nenumerations, nullable types, initializers and extension methods to \nwrite cleaner code that is easier to refactor. This course steadily \ntakes developers with a working knowledge of the object oriented \nfeatures at the core of the C# language to the next level.\n",
+                            "url": "http://www.edument.se/english/courses/course/intermediate-c-using-net-4-0",
+                            "colorCode":"#eeb815"
+                        }
+                    ]
+                },
+                {
+                    "name": "Getting Started with ASP.NET MVC 3",
+                    "detail": "Want to start developing with ASP.NET MVC? Spend 2 days learning the key\n things you need to know in order to use the framework effectively!\n",
+                    "url": "http://www.edument.se/english/courses/course/getting-started-with-asp-net-mvc-3",
+                    "colorCode":"#eeb815"
+                },
+                
+                {
+                    "name": "Modern TDD in .Net",
+                    "detail": "this course draws on a wealth of real world experiences to show you how to apply TDD in .NET.",
+                    "url": "http://www.edument.se/english/courses/course/modern-tdd-in-net",
+                    "colorCode":"#eeb815"
+                },
+                {
+                    "name": "Parallel and Asynchronous Programming in C# 5",
+                    "detail": "Will teach you parallel and async development using concurrent \ncollections, parallel looping constructs, PLINQ, Tasks, the new \nasync/await keywords in C# 5, the Reactive Extensions (Rx), the TPL \nDataflow library with its Actor-based development.\n",
+                    "url": "http://www.edument.se/english/courses/course/parallel-and-asynchronous-programming-in-c-5",
+                    "colorCode":"#eeb815"
+                },
+                {
+                    "name": "Productive development with ReSharper",
+                    "detail": "Unleash your productivity in Visual Studio 2010 using the ReSharper 7 \nadd-on. ReSharper is a refactoring and productivity tool which extends \nthe functionality of Visual Studio, making it a better IDE.\n",
+                    "url": "http://www.edument.se/english/courses/course/productive-development-with-resharper",
+                    "colorCode":"#eeb815"
+                }
+            ]
+        },
+        {
+            "name": "Java Courses",
+            "colorCode":"#0517f6",
+            "children": [
+                {
+                    "name": "Beginning Java",
+                    "detail": "Med denna kurs kommer du igång med Java från början. Kursen hjälper dig \nförstå språkets grundläggande syntax och täcker de viktigaste delarna av\n klassbiblioteket. Den kommer även att ge dig en solid grund i \nobjektorienterad programmering, där både arv och implementation av \ninterface gås igenom. Kursen levereras av erfarna utvecklare som kommer \natt visa dig det bästa sättet att skriva modern Java kod.\n",
+                    "url": "http://www.edument.se/english/courses/course/beginning-java",
+                    "colorCode":"#0517f6"
+                },
+                {
+                    "name": "Intermediate Java",
+                    "detail": "Kursen riktar sig till dig som redan har lite erfarenhet av Java men \nvill gå vidare och fördjupa dig i språket. Vi tittar på konstruktioner i\n språket som bland annat Threads. Vi fördjupar oss i best practices i \nobjektorienterad design och ser hur vi effektivt kan skapa en java \napplikation utifrån detta.\n",
+                    "url": "http://www.edument.se/english/courses/course/intermediate-java",
+                    "colorCode":"#0517f6"
+                },
+                {
+                    "name": "Modern TDD in Java",
+                    "detail": "this course draws on a wealth of real world experiences to show you how to apply TDD in Java.",
+                    "url": "http://www.edument.se/english/courses/course/modern-tdd-in-java",
+                    "colorCode":"#0517f6"
+                }
+            ]
+        },
+        {
+            "name": "Project Management Courses",
+            "colorCode":"#f404d7",
+            "children": [
+                {
+                    "name": "Foundation for Successful Project Management",
+                    "detail": "This concentrated one day overview on the foundations for successful \nproject management will give participants an insight to what is involved\n in delivering projects successfully every time. Irrespective of the \nmethodologies currently used in your organization. In this course we \ngive an overview as to how you can combine practices from PMI, PRINCE2, \nCCPM and Scrum.\n",
+                    "url": "http://www.edument.se/english/courses/course/foundation-for-successful-project-management",
+                    "colorCode":"#f404d7",
+                    "children": [
+                {
+                    "name": "Foundation for Successful Project Management",
+                    "detail": "This concentrated one day overview on the foundations for successful \nproject management will give participants an insight to what is involved\n in delivering projects successfully every time. Irrespective of the \nmethodologies currently used in your organization. In this course we \ngive an overview as to how you can combine practices from PMI, PRINCE2, \nCCPM and Scrum.\n",
+                    "url": "http://www.edument.se/english/courses/course/foundation-for-successful-project-management",
+                    "colorCode":"#f404d7"
+                },
+                {
+                    "name": "Requirements Development using Product Based Planning plus Estimating & Scheduling ",
+                    "detail": "Product based planning enables us to progressively develop the \nrequirements for building a product or service. This in turn means that \nwe can get feedback from the market or internally regarding the \nsuitability of the product(s) being developed. Based on the lessons \nlearned the project team can make controlled changes to the product or \nservice requirements to ensure that business objectives are met.",
+                    "url": "http://www.edument.se/english/courses/course/requirements-development-using-product-based-planning-plus-estimating-and-scheduling",
+                    "colorCode":"#f404d7"
+                }
+            ]
+                },
+                {
+                    "name": "Requirements Development using Product Based Planning plus Estimating & Scheduling ",
+                    "detail": "Product based planning enables us to progressively develop the \nrequirements for building a product or service. This in turn means that \nwe can get feedback from the market or internally regarding the \nsuitability of the product(s) being developed. Based on the lessons \nlearned the project team can make controlled changes to the product or \nservice requirements to ensure that business objectives are met.",
+                    "url": "http://www.edument.se/english/courses/course/requirements-development-using-product-based-planning-plus-estimating-and-scheduling",
+                    "colorCode":"#f404d7"
+                }
+            ]
+        }
+    ]
+}

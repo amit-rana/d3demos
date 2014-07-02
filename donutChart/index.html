@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta name="keywords" content="D3.js">
+    <title>D3-Charts</title>
+    <script type="text/javascript" src="js/d3.v3.js"></script>
+    <style type="text/css">
+    body{
+        font-family: Arial Unicode MS, Arial, sans-serif;
+        font-size: small;
+    }
+    .wrap{
+        width: 100% !important;
+    }
+    #donutChart{
+        float: left;
+    }
+    #bar{
+        float: left;   
+    }
+    .legend {
+        padding: 5px;
+        font: 10px sans-serif;
+        background: yellow;
+        box-shadow: 2px 2px 1px #888;
+    }
+
+    .grid .tick {
+        stroke: rgba(224,224,224,0.6);
+    }
+    .grid path {
+          stroke-width: 0;
+    }
+    </style>
+    <script type="text/javascript">
+        var color = d3.scale.category20();
+    </script>
+</head>
+
+<body>
+<div class="wrap">
+</div>    
+
+<div id="donutChart"><span><h2>Donut Chart</h2></span></div>
+<script>
+var width = 500,
+    height = 500,
+    radius = Math.min(width, height) / 2;
+
+var arc = d3.svg.arc()
+    .outerRadius(radius - 100)
+    .innerRadius(radius - 10);
+
+var pie = d3.layout.pie()
+    .sort(null)
+    .value(function(d) { return d.clients.length; });
+
+var svg = d3.select("#donutChart").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .append("g")
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+var filter = svg.append("defs").append("filter")
+    .attr("id", "blur")
+    .attr("height", "130%");
+
+// SourceAlpha refers to opacity of graphic that this filter will be applied to
+// convolve that with a Gaussian with standard deviation 3 and store result
+// in blur
+filter.append("feGaussianBlur")
+    .attr("in", "SourceAlpha")
+    .attr("stdDeviation", 5)
+    .attr("result", "blur");
+
+// translate output of Gaussian blur to the right and downwards with 2px
+// store result in offsetBlur
+filter.append("feOffset")
+    .attr("in", "blur")
+    .attr("dx", 5)
+    .attr("dy", 5)
+    .attr("result", "offsetBlur");
+
+var feMerge = filter.append("feMerge");
+
+feMerge.append("feMergeNode")
+    .attr("in", "offsetBlur");
+feMerge.append("feMergeNode")
+    .attr("in", "SourceGraphic");
+
+d3.json("data.json", function(json) {
+  var data = json.data;
+  var g = svg.selectAll(".arc")
+      .data(pie(data))
+    .enter().append("g")
+      .attr("class", "arc");
+      //.attr("filter", "url(#blur)");
+
+  g.append("path")
+      .attr("d", arc)
+      .attr("stroke",function(d) {return color(d.data.riskLevelId);})
+      .attr("stroke-width",3)
+      .style("fill", function(d) {return color(d.data.riskLevelId);});
+
+  g.append("text")
+      .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
+      .attr("dy", ".35em")
+      .style("text-anchor", "middle")
+      .style("fill","white")
+      .text(function(d) { return d.data.riskLevelName+" ("+ d.data.clients.length+")"; });
+});
+</script>
+<div id="bar"><span><h2>Bar Chart</h2></span></div>
+<script type="text/javascript">
+
+d3.json("data.json", function(json) {
+    var data = json.data;
+    var data_max = d3.max(data, function(d) {return d.clients.length;}) + 5,
+    num_ticks = 5,
+    left_margin = 20,
+    right_margin = 60,
+    top_margin = 30,
+    bottom_margin = 0;
+    var w = 500,
+        h = 500;
+        
+    var x = d3.scale.linear()
+        .domain([0, data_max])
+        .range([0, w - ( left_margin + right_margin) ]),
+
+        y = d3.scale.ordinal()
+        .domain(d3.range(data.length))
+        .rangeBands([bottom_margin, h - top_margin], .5);
+
+
+    var chart_top = h - y.rangeBand()/2 - top_margin;
+    var chart_bottom = bottom_margin + y.rangeBand()/2;
+    var chart_left = left_margin;
+    var chart_right = w - right_margin;
+
+    /*
+     *  Setup the SVG element and position it
+     */
+    var vis = d3.select("#bar")
+        .append("svg:svg")
+            .attr("width", w)
+            .attr("height", h)
+        .append("svg:g")
+            .attr("id", "barchart")
+            .attr("class", "barchart");
+    
+    vis.append("g")         
+        .attr("class", "grid")
+        .attr("transform", "translate("+chart_left+"," + chart_top+ ")")
+        .call(make_x_axis()
+            .tickSize(-h, 0, 0)
+            .tickFormat("")
+        )
+
+    vis.append("g")         
+        .attr("class", "grid")
+        .attr("transform", "translate("+chart_left+",0)")
+        .call(make_y_axis()
+            .tickSize(-w+right_margin,0, 0)
+            .tickFormat("")
+        ) 
+
+    var rules = vis.selectAll("g.rule")
+        .data(x.ticks(num_ticks))
+    .enter()
+        .append("svg:g")
+        .attr("transform", 
+            function(d){
+                return "translate(" + (chart_left + x(d)) + ")";
+            });
+
+    rules.append("svg:line")
+        .attr("class", "tick")
+        .attr("y1", chart_top)
+        .attr("y2", chart_top + 4)
+        .attr("stroke", "black");
+
+    rules.append("svg:text")
+        .attr("class", "tick_label")
+        .attr("text-anchor", "middle")
+        .attr("y", chart_top)
+        .text(function(d){return d;});
+
+    var bbox = vis.selectAll(".tick_label").node().getBBox();
+
+    vis.selectAll(".tick_label")
+    .attr("transform", function(d){return "translate(0," + (bbox.height) + ")";});
+
+    var bars = vis.selectAll("g.bar")
+        .data(data)
+    .enter()
+        .append("svg:g")
+        .attr("class", "bar")
+        .attr("transform", function(d, i) {return "translate(0, " + y(i) + ")"; });
+
+    bars.append("svg:rect")
+        .attr("x", left_margin)
+        .attr("width", function(d) {return (x(d.clients.length));})
+        .attr("height", y.rangeBand())
+        .style("fill", function(d) {return color(d.riskLevelId);})
+        .attr("stroke", function(d) {return color(d.riskLevelId);});
+        //.attr("filter", "url(#blur)");
+
+    var labels = vis.selectAll("g.bar")
+        .append("svg:text")
+        .attr("class", "value")
+        .attr("x", function(d){return x(d.clients.length) + right_margin + 10;})
+        .attr("text-anchor", "left")
+        .text(function(d){return d.riskLevelName+" (" + d.clients.length +")";});
+
+    bbox = labels.node().getBBox();
+    vis.selectAll(".value")
+        .attr("transform", function(d)
+        {
+            return "translate(0, " + (y.rangeBand()/2 + bbox.height/4) + ")";
+        });
+    
+    vis.append("svg:line")
+        .attr("class", "axes")
+        .attr("x1", chart_left)
+        .attr("x2", chart_left)
+        .attr("y1", chart_bottom)
+        .attr("y2", chart_top)
+        .attr("stroke", "black");
+
+     vis.append("svg:line")
+        .attr("class", "axes")
+        .attr("x1", chart_left)
+        .attr("x2", chart_right)
+        .attr("y1", chart_top)
+        .attr("y2", chart_top)
+        .attr("stroke", "black");
+         
+    var legend = vis.append("g")
+      .attr("class", "legend")
+      .attr("height", 200)
+      .attr("width", 100)
+    .attr('transform', 'translate(-35,35)')    
+    
+    legend.selectAll('rect')
+      .data(data)
+      .enter()
+      .append("rect")
+      .attr("x", w - 65)
+      .attr("y", function(d, i){ return i *  20;})
+      .attr("width", 10)
+      .attr("height", 10)
+      .style("fill", function(d) {        
+        return color(d.riskLevelId);
+      })
+      
+    legend.selectAll('text')
+      .data(data)
+      .enter()
+      .append("text")
+      .attr("x", w - 52)
+      .attr("y", function(d, i){ return i *  20 + 9;})
+      .text(function(d) {
+        return d.riskLevelName;
+  
+      });    
+
+function make_x_axis() {        
+    return d3.svg.axis()
+        .scale(x)
+         .orient("bottom")
+         .ticks(50)
+}
+
+function make_y_axis() {        
+    return d3.svg.axis()
+        .scale(y)
+        .orient("left")
+        .ticks(50)
+}
+});
+</script>
+  </body>
+</html>

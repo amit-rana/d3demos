@@ -1,0 +1,38 @@
+{
+	"name": "No settlement",
+	"description": "",
+	"probability": null,
+	"value": null,
+	"paths": [
+		{
+			"name": "SJ Denied",
+			"description": "Summary judgement denied.",
+			"probability": 0.70,
+			"value": null,
+			"paths": [
+				{
+					"name": "Plaintiff verdict",
+					"description": "Trial in favor of plaintiff",
+					"probability": 0.2,
+					"value": 900000,
+					"paths": []
+				},
+				{
+					"name": "Defendant verdict",
+					"description": "Trial in favor of defendant",
+					"probability": 0.8,
+					"value": 0,
+					"paths": []
+				}
+			]
+		},
+		{			
+			"name": "SJ Granted",
+			"description": "Summary judgement granted.",
+			"probability": 0.30,
+			"value": 0,
+			"paths": []
+		}
+	 ]
+}
+
